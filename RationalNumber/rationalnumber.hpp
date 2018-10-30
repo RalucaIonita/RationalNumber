@@ -1,6 +1,6 @@
 #pragma once
 
-
+//smth
 class RationalNumber
 {
 private:
@@ -25,7 +25,8 @@ public:
 	//Destructor
 	~RationalNumber();
 
-	//Operators
+
+	//Attribution operators
 	RationalNumber operator+=(RationalNumber x);
 	RationalNumber operator+=(int x);
 
@@ -37,6 +38,29 @@ public:
 
 	RationalNumber operator/=(RationalNumber x);
 	RationalNumber operator/=(int x);
+
+	//Arithmentic operators
+	RationalNumber operator+(RationalNumber x);
+	RationalNumber operator+(double x);
+	RationalNumber operator+(int x);
+	
+	RationalNumber operator-(RationalNumber x);
+	RationalNumber operator-(double x);
+	RationalNumber operator-(int x);
+	
+	RationalNumber operator*(RationalNumber x);
+	RationalNumber operator*(double x);
+	RationalNumber operator*(int x);
+	
+	RationalNumber operator/(RationalNumber x);
+	RationalNumber operator/(double x);
+	RationalNumber operator/(int x);
+
+
+
+
+
+	
 
 
 
