@@ -10,9 +10,9 @@ private:
 public:
 
 	//Set
-	RationalNumber SetRationalValue(RationalNumber x);
-	RationalNumber SetNumeratorValue(int x);
-	RationalNumber SetDenominatorValue(int x);
+	void SetRationalValue(RationalNumber x);
+	void SetNumeratorValue(int x);
+	void SetDenominatorValue(int x);
 
 	//Get
 	void GetNumeratorValue();
@@ -20,7 +20,7 @@ public:
 
 	//Constructors
 	RationalNumber(int numerator = 0, int denominator = 1);
-	RationalNumber&(const RationalNumber& x);
+	RationalNumber(const RationalNumber& x);
 
 	//Destructor
 	~RationalNumber();
