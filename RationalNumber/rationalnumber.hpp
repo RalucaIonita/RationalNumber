@@ -1,10 +1,16 @@
 #pragma once
+/*#ifndef RATIONALNUMBER_HPP
+#define RATONALNUMBER_HPP*/
 
-//smth
+#include<string>
+
+
 class RationalNumber
 {
 private:
 	int m_numerator, m_denominator;
+	RationalNumber CanonicalForm();
+
 
 
 public:
@@ -15,70 +21,96 @@ public:
 	void SetDenominatorValue(int x);
 
 	//Get
-	void GetNumeratorValue();
-	void GetDenominatorValue();
+	int GetNumeratorValue();
+	int GetDenominatorValue();
 
 	//Constructors
-	RationalNumber(int numerator = 0, int denominator = 1);
+	RationalNumber();
+	RationalNumber(int numerator, int denominator);
 	RationalNumber(const RationalNumber& x);
 
 	//Destructor
 	~RationalNumber();
 
+	//Unary operators
+	friend RationalNumber operator+(RationalNumber x);
+	friend RationalNumber operator-(RationalNumber x);
+
+
 
 	//Attribution operators
-	RationalNumber operator+=(RationalNumber x);
-	RationalNumber operator+=(int x);
+	friend RationalNumber operator+=(RationalNumber x, RationalNumber y);
+	friend RationalNumber operator+=(RationalNumber x, int y);
 
-	RationalNumber operator-=(RationalNumber x);
-	RationalNumber operator-=(int x);
+	friend RationalNumber operator-=(RationalNumber x, RationalNumber y);
+	friend RationalNumber operator-=(RationalNumber x, int y);
 
-	RationalNumber operator*=(RationalNumber x);
-	RationalNumber operator*=(int x);
+	friend RationalNumber operator*=(RationalNumber x, RationalNumber y);
+	friend RationalNumber operator*=(RationalNumber x, int y);
 
-	RationalNumber operator/=(RationalNumber x);
-	RationalNumber operator/=(int x);
+	friend RationalNumber operator/=(RationalNumber x, RationalNumber y);
+	friend RationalNumber operator/=(RationalNumber x, int y);
 
 	//Arithmentic operators
-	RationalNumber operator+(RationalNumber x);
-	RationalNumber operator+(double x);
-	RationalNumber operator+(int x);
-	
-	RationalNumber operator-(RationalNumber x);
-	RationalNumber operator-(double x);
-	RationalNumber operator-(int x);
-	
-	RationalNumber operator*(RationalNumber x);
-	RationalNumber operator*(double x);
-	RationalNumber operator*(int x);
-	
-	RationalNumber operator/(RationalNumber x);
-	RationalNumber operator/(double x);
-	RationalNumber operator/(int x);
+	friend RationalNumber operator+(RationalNumber x, RationalNumber y);
+	friend RationalNumber operator+(RationalNumber x, int y);
+	friend RationalNumber operator+(int x, RationalNumber y);
+
+	friend RationalNumber operator-(RationalNumber x, RationalNumber y);
+	friend RationalNumber operator-(RationalNumber x, int y);
+	friend RationalNumber operator-(int x, RationalNumber y);
+
+	friend RationalNumber operator*(RationalNumber x, RationalNumber y);
+	friend RationalNumber operator*(RationalNumber x, int y);
+	friend RationalNumber operator*(int x, RationalNumber y);
+
+	friend RationalNumber operator/(RationalNumber x, RationalNumber y);
+	friend RationalNumber operator/(RationalNumber x, int y);
+	friend RationalNumber operator/(int x, RationalNumber y);
+
+	friend RationalNumber operator^(RationalNumber x, int y);
+
+	//Relational operators
+	friend bool operator==(RationalNumber x, RationalNumber y);
+	friend bool operator==(RationalNumber x, int y);
+	friend bool operator==(int x, RationalNumber y);
+
+	friend bool operator!=(RationalNumber x, RationalNumber y);
+	friend bool operator!=(RationalNumber x, int y);
+	friend bool operator!=(int x, RationalNumber y);
+
+	friend bool operator<(RationalNumber x, RationalNumber y);
+	friend bool operator<(RationalNumber x, int y);
+	friend bool operator<(int x, RationalNumber y);
+
+	friend bool operator<=(RationalNumber x, RationalNumber y);
+	friend bool operator<=(RationalNumber x, int y);
+	friend bool operator<=(int x, RationalNumber y);
+
+	friend bool operator>(RationalNumber x, RationalNumber y);
+	friend bool operator>(RationalNumber x, int y);
+	friend bool operator>(int x, RationalNumber y);
+
+	friend bool operator>=(RationalNumber x, RationalNumber y);
+	friend bool operator>=(RationalNumber x, int y);
+	friend bool operator>=(int x, RationalNumber y);
+
+
+	//To string
+	std::string toString(const RationalNumber& x);
+
+
+	//Conversion operators
+	operator double() const;
+	operator int() const;
+	operator std::string() const;
 
 
 
 
-
-	
-
-
-
-
-
-
-
-private:
-	RationalNumber CanonicalForm();
-
-
-
-
-
-
-
-
-
+	//Reading and writing operators
+	friend std::istream& operator >>(std::istream& in, RationalNumber& x);
+	friend std::ostream& operator <<(std::ostream& out, RationalNumber& x);
 
 
 };
