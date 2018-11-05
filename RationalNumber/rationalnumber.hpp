@@ -1,7 +1,6 @@
 #pragma once
-/*#ifndef RATIONALNUMBER_HPP
-#define RATONALNUMBER_HPP*/
 
+#include<fstream>
 #include<string>
 
 
@@ -97,20 +96,25 @@ public:
 
 
 	//To string
-	std::string toString(const RationalNumber& x);
+	std::string ToString(RationalNumber& x);
 
 
 	//Conversion operators
 	operator double() const;
 	operator int() const;
-	operator std::string() const;
+	operator std::string();
 
 
 
 
 	//Reading and writing operators
+		//console
 	friend std::istream& operator >>(std::istream& in, RationalNumber& x);
 	friend std::ostream& operator <<(std::ostream& out, RationalNumber& x);
+	   //file
+	friend std::ifstream& operator >>(std::ifstream& in, RationalNumber& x);
+	friend std::ofstream& operator <<(std::ofstream& out, RationalNumber& x);
+
 
 
 };

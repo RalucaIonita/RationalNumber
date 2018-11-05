@@ -1,5 +1,2 @@
 ﻿  main.cpp
-  RationalNumber.cpp
-c:\users\nuuit\source\repos\rationalnumber3\rationalnumber\rationalnumber.cpp(589): error C2662: 'std::string RationalNumber::toString(const RationalNumber &)': cannot convert 'this' pointer from 'const RationalNumber' to 'RationalNumber &'
-  c:\users\nuuit\source\repos\rationalnumber3\rationalnumber\rationalnumber.cpp(589): note: Conversion loses qualifiers
-  Generating Code...
+  RationalNumber.vcxproj -> C:\Users\nuuit\source\repos\RationalNumber3\x64\Debug\RationalNumber.exe
