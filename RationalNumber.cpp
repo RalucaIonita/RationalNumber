@@ -1,6 +1,5 @@
 ﻿
 #include "pch.h"
-#include<fstream>
 #include "RationalNumber.hpp"
 
 #include<string>
