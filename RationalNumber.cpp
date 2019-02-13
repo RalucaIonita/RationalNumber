@@ -478,7 +478,11 @@ bool operator<=(const int& x, const RationalNumber& y)
 
 std::istream& operator>>(std::istream& in, RationalNumber& x)
 {
-	in >> x.m_numerator >> x.m_denominator;
+	in >> x.m_numerator;
+	in.ignore (1024, '/');
+	in>> x.m_denominator;
+	if (x.m_denominator == 0)
+		throw std::runtime_error("Denominator cannot be 0.");
 	x.CanonicalForm();
 	return in;
 }
@@ -495,40 +499,6 @@ std::ostream& operator<<(std::ostream& out, RationalNumber& x)
 	else
 		out << x.m_numerator << "/" << x.m_denominator;
 	return out;
-}
-
-
-
-	//file
-
-
-		//>>
-
-
-std::ifstream& operator>>(std::ifstream& infile, RationalNumber& x)
-{
-	infile >> x.m_numerator;
-	infile.ignore (1024, '/');
-	infile>> x.m_denominator;
-	if (x.m_denominator == 0)
-		throw std::runtime_error("Denominator cannot be 0.");
-	x.CanonicalForm();
-	return infile;
-}
-
-
-
-
-//<<
-
-
-std::ofstream& operator<<(std::ofstream& outfile, RationalNumber& x)
-{
-	if (x.m_denominator == 1)
-		outfile << x.m_numerator;
-	else
-		outfile << x.m_numerator << "/" << x.m_denominator;
-	return outfile;
 }
 
 
